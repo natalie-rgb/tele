@@ -22,12 +22,13 @@ else {
 if(isset($_POST['opcja']))
     switch($_POST['opcja']){
         case '1':
-            echo "Jaki lekarz odpowiada za dany parametr?";
+            
+            echo "Jaki lekarz odpowiada za dany parametr?<br>";
             $sql = "SELECT l.imie, l.nazwisko, l.specjalizacja, p.nazwa, j.jednostka ";
             $sql .= "FROM _lekarz l, _parametry p, _jednostki j ";
             $sql .= "WHERE p.id_jednostka = j.id_jednostka AND l.id_lekarz = p.id_lekarz" ;
             if($wynik = WykonajZapytanie2($sql))
-                wyswietl_02($wynik);
+                wyswietl_03($wynik);
             else echo "brak wynikow <br>";
             break;
 
