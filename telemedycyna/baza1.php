@@ -20,6 +20,17 @@ function WykonajZapytanie($polaczenie, $_MySQL)
     return $wynik;
 }
 
+function wyswietl_03($wynik){
+ 
+    echo '<table class="table table-sm table-primary"><tr><th>imie</th><th>nazwisko</th><th>specjalizacja</th><th>nazwa</th><th>jednostka</th></tr>';
+    while($wiersz = $wynik -> fetch_array(MYSQLI_ASSOC)){
+            echo "<tr><td>{$wiersz['imie']}</td><td>{$wiersz['nazwisko']}</td><td>{$wiersz['specjalizacja']}</td><td>{$wiersz['nazwa']}</td><td>{$wiersz['jednostka']}</td></tr>";
+             
+        
+    }
+    echo '</table>';
+}
+
 
 
 function zwrocSkalar($_MySQL)
@@ -39,7 +50,7 @@ function zwrocSkalar($_MySQL)
     
     function WykonajZapytanie2($_MySQL)
     {
-        echo "2. $_MySQL <br>";
+        
         if($polaczenie = polaczZbaza()){
           
             mysqli_set_charset($polaczenie, 'utf_8');
