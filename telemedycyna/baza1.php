@@ -30,6 +30,16 @@ function wyswietl_03($wynik){
     }
     echo '</table>';
 }
+function wyswietl_04_lekarz($wynik){
+ 
+    echo '<table class="table table-sm table-primary"><tr><th>imie</th><th>nazwisko</th><th>wynik</th><th>nazwa</th></tr>';
+    while($wiersz = $wynik -> fetch_array(MYSQLI_ASSOC)){
+            echo "<tr><td>{$wiersz['imie']}</td><td>{$wiersz['nazwisko']}</td><td>{$wiersz['wynik']}</td><td>{$wiersz['nazwa']}</td></tr>";
+             
+        
+    }
+    echo '</table>';
+}
 
 
 

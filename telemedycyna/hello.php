@@ -25,13 +25,20 @@ if(!isset($_SESSION['startLogin']) || $_SESSION['startLogin'] = 1){
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
         
-<H3> <div class="p-3 mb-2 bg-success text-white">ZALOGUJ SIE</div> </H3>
-
+<H3> <div class="p-3 mb-2 bg-success text-white">ZALOGUJ SIE</div><br> </H3>
+<p class="text-success border border-success">Jako pacjent</p>
 <form action="./page1.php" method="POST">
   Email: <input type="email" name="email" placeholder = "podaj email" required><br>
   Hasło: <input type="password" name="haslo" placeholder = "podaj haslo" required><br>
+  <input type="submit" value="Zaloguj"><br><br>
+ 
+</form>
+
+<p class="text-success border border-success">Jako lekarz</p>
+<form action="./page1lekarz.php" method="POST">
+  Email: <input type="email" name="email_lekarz" placeholder = "podaj email" required><br>
+  Hasło: <input type="password" name="haslo_lekarz" placeholder = "podaj haslo" required><br>
   <input type="submit" value="Zaloguj"><br>
   
-</form>
 </body>
 </html>
