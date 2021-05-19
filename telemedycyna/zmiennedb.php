@@ -1,3 +1,3 @@
 <?php
-$dbHaslo_NW = "illumination13.";
+$dbHaslo_NW = "telemedycyna";
 ?>
