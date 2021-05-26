@@ -14,6 +14,7 @@ else {
 <form action = "page2.php" method = "post">
     <button name = "opcja" value = "1" class="btn btn-outline-success">Jaki lekarz odpowiada za dany parametr? </button>
     <button name = "opcja" value = "2" class="btn btn-outline-success"> Dodaj swoje wyniki </button>
+    <button name = "opcja" value = "3" class="btn btn-outline-success"> Historia pomiarów</button>
 </form>
 
 
@@ -48,6 +49,22 @@ if(isset($_POST['opcja']))
 
         <?php
             break;
+
+        case "3";
+        echo "<br> Historia pomiarów <br> ";
+        ?>
+                    <br> Ktory parametr:
+                    <form action = "hist_pom.php" method = "post">
+                        <select name = "id_badania">
+                    <?php
+                        echo opcjeBadania();
+                    ?>
+                        <option value = "-1" name = "all"> wszystkie pomiary </option>
+                        </select><br>
+                        <input type = "submit" value = "Zapisz" name = "submit_H"> <br>
+        
+                <?php
+                    break;
         }}
 ?>
 

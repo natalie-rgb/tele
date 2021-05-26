@@ -9,10 +9,11 @@
     
     <H3> <div class="p-3 mb-2 bg-success text-white">Witaj</div> </H3>
     <?php
-    echo "<h1>Jestes zalogowany jako pacjent</h1>";
+    
     if($_SESSION['startLogin'] != 1)
         echo "Dostep zabroniony";  
     else{
+        echo "<h1>Jestes zalogowany jako pacjent</h1>";
         $_SESSION['startLogin'] != -1;
         $email = $_POST['email'];
         $haslo = md5($_POST['haslo']);
