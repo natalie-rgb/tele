@@ -66,5 +66,7 @@ if(isset($_POST['opcja']))
                 <?php
                     break;
         }}
+
+        echo '<a href = logout.php> Wyloguj</a>';
 ?>
 
