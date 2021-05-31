@@ -32,9 +32,20 @@ function wyswietl_03($wynik){
 }
 function wyswietl_04_lekarz($wynik){
  
-    echo '<table class="table table-sm table-primary"><tr><th>imie</th><th>nazwisko</th><th>wynik</th><th>nazwa</th></tr>';
+    echo '<table class="table table-sm table-primary"><tr><th>Imie</th><th>Nazwisko</th><th>Wynik</th><th>Parametr</th></tr>';
     while($wiersz = $wynik -> fetch_array(MYSQLI_ASSOC)){
             echo "<tr><td>{$wiersz['imie']}</td><td>{$wiersz['nazwisko']}</td><td>{$wiersz['wynik']}</td><td>{$wiersz['nazwa']}</td></tr>";
+             
+        
+    }
+    echo '</table>';
+}
+
+function wyswietl_05_lekarz($wynik){
+ 
+    echo '<table class="table table-sm table-primary"><tr><th>Email pacjenta</th><th>Temat</th><th>Tresc</th><th>Data</th></tr>';
+    while($wiersz = $wynik -> fetch_array(MYSQLI_ASSOC)){
+            echo "<tr><td>{$wiersz['Email pacjenta']}</td><td>{$wiersz['temat']}</td><td>{$wiersz['tresc']}</td><td>{$wiersz['data']}</td></tr>";
              
         
     }
@@ -73,14 +84,38 @@ function zwrocSkalar($_MySQL)
 
         }else return NULL;
     }
-
 function opcjeBadania(){
     $retVal = "";
-    $sql = "SELECT `id_parametry`, `nazwa` FROM `_parametry`";
+    $sql = "SELECT `id_pacjenta`, `email` FROM `_pacjent`";
     $wynik = WykonajZapytanie2($sql);
     if($wynik){
         while($wiersz = $wynik -> fetch_assoc())
-            $retVal .= '<option value = "' . $wiersz["id_parametry"] . '" >' . $wiersz["nazwa"] . '</option>';
+            $retVal .= '<option value = "' . $wiersz["id_pacjenta"] . '" >' . $wiersz["email"] . '</option>';
+            return $retVal;
+
+    }
+    else $retVal;
+}
+function opcjeBadania_pacjent(){
+    $retVal = "";
+    $sql = "SELECT `id_pacjenta`, `email` FROM `_pacjent`";
+    $wynik = WykonajZapytanie2($sql);
+    if($wynik){
+        while($wiersz = $wynik -> fetch_assoc())
+            $retVal .= '<option value = "' . $wiersz["id_pacjenta"] . '" >' . $wiersz["email"] . '</option>';
+            return $retVal;
+
+    }
+    else $retVal;
+}
+
+function opcjeBadania_lekarz(){
+    $retVal = "";
+    $sql = "SELECT `id_lekarz`, `email_lekarz` FROM `_lekarz`";
+    $wynik = WykonajZapytanie2($sql);
+    if($wynik){
+        while($wiersz = $wynik -> fetch_assoc())
+            $retVal .= '<option value = "' . $wiersz["id_lekarz"] . '" >' . $wiersz["email_lekarz"] . '</option>';
             return $retVal;
 
     }
