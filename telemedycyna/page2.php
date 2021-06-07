@@ -12,10 +12,12 @@ else {
     
 
 <form action = "page2.php" method = "post">
-    <button name = "opcja" value = "1" class="btn btn-outline-success">Jaki lekarz odpowiada za dany parametr? </button>
+    <button name = "opcja" value = "1" class="btn btn-outline-success"> Lista lekarzy</button>
     <button name = "opcja" value = "2" class="btn btn-outline-success"> Dodaj swoje wyniki </button>
     <button name = "opcja" value = "3" class="btn btn-outline-success"> Historia pomiarów</button>
     <button name = "opcja" value = "4" class="btn btn-outline-success"> Kontakt z lekarzem</button>
+    <button name = "opcja" value = "5" class="btn btn-outline-success"> Wykres </button>
+    <button name = "opcja" value = "6" class="btn btn-outline-success" onclick="window.location=('./calendar/calendar_main.php')"> Kalendarz wizyt </button>
 </form>
 
 
@@ -85,7 +87,7 @@ if(isset($_POST['opcja']))
                     ?>
                         <option value = "-1" name = "all"> wszystkie pomiary </option>
                         </select><br>
-                        <input type = "submit" value = "Zapisz" name = "submit_H"> <br>
+                        <input type = "submit" value = "Zapisz" name = "submit_H" onclick="window.location=('./hist_pom.php')"> <br>
         
                 <?php
                     break;
@@ -94,7 +96,6 @@ if(isset($_POST['opcja']))
              
                     ?>
                                 
-                    
                                 
                                 <br>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
@@ -130,6 +131,25 @@ if(isset($_POST['opcja']))
                     
                             <?php
                                 break;
+        case "5";
+                echo "<br>Historia pomiarów - wykres<br> ";
+                ?>
+                <br> Ktory parametr:
+                    <form action = "chart.php" method = "post">
+                        <select name = "id_badania">
+                    <?php
+                        echo opcjeBadania();
+                    ?>
+                        </select><br>
+                        <input type = "submit" value = "Wybierz" name = "submit_H" onclick="window.location=('./hist_pom.php')"> <br>
+
+                <?php
+                    break;
+
         }}
+
+
+
+        include("stopka.php");
 ?>
 
