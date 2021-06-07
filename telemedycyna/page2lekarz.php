@@ -2,6 +2,8 @@
 session_start();
 include("naglowek.php");
 include("baza1.php");
+include("stopka.php");
+
 
 if($_SESSION['zalogowany'] != 1)
     echo "Dostep zabroniony";

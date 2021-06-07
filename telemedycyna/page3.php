@@ -12,7 +12,7 @@
 
 <?php
     $user = $_SESSION["id_pacjenta"];
-    $sql = sprintf("INSERT INTO `_pomiary_serce` (`id_pomiary`, `id_pacjenta`, `id_parametry`, `wynik`, `data_pomiaru`) VALUES (NULL, %d, %d, %f, now())",
+    $sql = sprintf("INSERT INTO `_pomiary_serce` (`id_pomiary`, `id_pacjenta`, `id_parametry`, `wynik`) VALUES (NULL, %d, %d, %f)",
         $_SESSION["id_pacjenta"], $_POST["id_badanie"], $_POST["wartPom"]);
     echo "<br> $sql <br>";
 

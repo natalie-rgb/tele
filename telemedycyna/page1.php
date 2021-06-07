@@ -4,6 +4,7 @@
     session_start();
     include("naglowek.php");
     include("baza1.php");
+
     
 ?>
     

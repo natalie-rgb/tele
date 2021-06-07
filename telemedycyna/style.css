@@ -4,3 +4,13 @@ P {font-size: 15pt; color: green; font-family: "Verdana CE", Verdana, "Arial CE"
     H5 {font-size: 8pt; color: gray; font-family: "Verdana CE", Verdana, "Arial CE", Arial,
     Helvetica, sans-serif; text-decoration: none; text-align: justify; margin-bottom: 2px;
     font-weight: normal;}
+
+    table {
+        border-collapse: collapse;
+        width: 50%;
+      }
+      
+      th, td {
+        text-align: center;
+        padding: 8px;
+      }
