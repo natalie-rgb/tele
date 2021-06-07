@@ -40,6 +40,57 @@ function wyswietl_04_lekarz($wynik){
     }
     echo '</table>';
 }
+function wyswietl_NORMY($wynik){
+ 
+    echo '<table class="table table-sm table-primary"><tr><th>Nazwa</th><th>Wynik</th><th>Norma</th><th>Nazwisko</th><th>Porada</th></tr>';
+    while($wiersz = $wynik -> fetch_array(MYSQLI_ASSOC)){
+            echo "<tr><td>{$wiersz['nazwa']}</td><td>{$wiersz['wynik']}</td><td>{$wiersz['norma']}</td><td>{$wiersz['nazwisko']}</td><td>{$wiersz['PORADA']}</td></tr>";
+             
+        
+    }
+    echo '</table>';
+}
+function wyswietl_NORMY_ZA_WYSOKI($wynik){
+    
+    echo '<table class="table table-sm table-danger"><tr><th>Nazwa</th><th>Wynik</th><th>ZA WYSOKI</th><th>Nazwisko</th><th>Porada</th></tr>';
+    while($wiersz = $wynik -> fetch_array(MYSQLI_ASSOC)){
+            echo "<tr><td>{$wiersz['nazwa']}</td><td>{$wiersz['wynik']}</td><td>{$wiersz['ZA_WYSOKI']}</td><td>{$wiersz['nazwisko']}</td><td>{$wiersz['PORADA_ZA_WYSOKI']}</td></tr>";
+             
+        
+    }
+    echo '</table>';
+}
+function wyswietl_NORMY_CISNIENIE_N($wynik){
+    
+    echo '<table class="table table-sm table-danger"><tr><th>Nazwa</th><th>Wynik</th><th>ZA NISKI</th><th>Nazwisko</th><th>Porada</th></tr>';
+    while($wiersz = $wynik -> fetch_array(MYSQLI_ASSOC)){
+            echo "<tr><td>{$wiersz['nazwa']}</td><td>{$wiersz['wynik']}</td><td>{$wiersz['ZA_NISKI']}</td><td>{$wiersz['nazwisko']}</td><td>{$wiersz['PORADA_ZA_NISKI']}</td></tr>";
+             
+        
+    }
+    echo '</table>';
+}
+function wyswietl_NORMY_CISNIENIE_W($wynik){
+    
+    echo '<table class="table table-sm table-danger"><tr><th>Nazwa</th><th>Wynik</th><th>ZA WYSOKI</th><th>Nazwisko</th><th>Porada</th></tr>';
+    while($wiersz = $wynik -> fetch_array(MYSQLI_ASSOC)){
+            echo "<tr><td>{$wiersz['nazwa']}</td><td>{$wiersz['wynik']}</td><td>{$wiersz['ZA_WYSOKI']}</td><td>{$wiersz['nazwisko']}</td><td>{$wiersz['PORADA_ZA_WYSOKI']}</td></tr>";
+             
+        
+    }
+    echo '</table>';
+}
+function wyswietl_NORMY_CISNIENIE($wynik){
+    
+    echo '<table class="table table-sm table-primary"><tr><th>Nazwa</th><th>Wynik</th><th>NORMA</th><th>Nazwisko</th><th>Porada</th></tr>';
+    while($wiersz = $wynik -> fetch_array(MYSQLI_ASSOC)){
+            echo "<tr><td>{$wiersz['nazwa']}</td><td>{$wiersz['wynik']}</td><td>{$wiersz['norma']}</td><td>{$wiersz['nazwisko']}</td><td>{$wiersz['PORADA']}</td></tr>";
+             
+        
+    }
+    echo '</table>';
+}
+
 
 function wyswietl_05_lekarz($wynik){
  
@@ -96,6 +147,32 @@ function opcjeBadania(){
     }
     else $retVal;
 }
+function opcjeBadania_wyniki(){
+    $retVal = "";
+    $sql = "SELECT `id_pacjenta`, `nazwisko` FROM `_pacjent`";
+    $wynik = WykonajZapytanie2($sql);
+    if($wynik){
+        while($wiersz = $wynik -> fetch_assoc())
+            $retVal .= '<option value = "' . $wiersz["id_pacjenta"] . '" >' . $wiersz["nazwisko"] . '</option>';
+            return $retVal;
+
+    }
+    else $retVal;
+}
+
+function opcjeBadania_param(){
+    $retVal = "";
+    $sql = "SELECT `id_parametry`, `nazwa` FROM `_parametry`";
+    $wynik = WykonajZapytanie2($sql);
+    if($wynik){
+        while($wiersz = $wynik -> fetch_assoc())
+            $retVal .= '<option value = "' . $wiersz["id_parametry"] . '" >' . $wiersz["nazwa"] . '</option>';
+            return $retVal;
+
+    }
+    else $retVal;
+}
+
 function opcjeBadania_pacjent(){
     $retVal = "";
     $sql = "SELECT `id_pacjenta`, `email` FROM `_pacjent`";

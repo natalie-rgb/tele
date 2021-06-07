@@ -15,6 +15,7 @@ else {
     <button name = "opcja" value = "1" class="btn btn-outline-success">Pokaz wyniki pacjentow </button>
     <button name = "opcja" value = "2" class="btn btn-outline-success"> Wyslij maila do pacjenta </button>
     <button name = "opcja" value = "3" class="btn btn-outline-success"> Historia wyslanych wiadomosci </button>
+    <button name = "opcja" value = "4" class="btn btn-outline-success"> NORMY </button>
 </form>
 
 
@@ -29,18 +30,17 @@ if(isset($_POST['opcja']))
   <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
 </svg>
             Wyniki pacjentów
-             
+            <form action = "wyniki.php" method = "post">
+            <select name = "id_wyniki">
             <?php
-             
-            $sql = "SELECT pac.imie, pac.nazwisko, p.wynik, par.nazwa ";
-            $sql .= "FROM _pacjent pac, _pomiary_serce p, _parametry par ";
-            $sql .= "WHERE p.id_parametry = par.id_parametry AND pac.id_pacjenta = p.id_pacjenta" ;
-
-
-          
-            if($wynik = WykonajZapytanie2($sql))
-                wyswietl_04_lekarz($wynik);
-            else echo "brak wynikow <br>";
+                echo opcjeBadania_wyniki();
+                echo "<br>";
+                
+                ?>
+                <input type = "submit" value = "Wyslij" class="btn btn-outline-success"> <br>
+           
+             <?php
+            
             break;
 
         case "2";
@@ -69,11 +69,13 @@ if(isset($_POST['opcja']))
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-text-fill" viewBox="0 0 16 16">
   <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
 </svg>
-                Temat: <input type = "text" name = "topic"  placeholder = "Napisz..." required> <br>
+                Temat:<br>
+                <input type = "text" name = "topic"  placeholder = "Napisz..." required> <br>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-text-fill" viewBox="0 0 16 16">
   <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
 </svg>
-                Treść maila: <textarea name = "text" rows = "8" cols = "80"  placeholder = "Napisz..."></textarea> <br>
+                Treść maila:<br>
+                <textarea name = "text" rows = "8" cols = "80"  placeholder = "Napisz..."></textarea> <br>
                 <input type = "submit" value = "Wyslij" class="btn btn-outline-success"> <br>
         <br>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skype" viewBox="0 0 16 16">
@@ -99,6 +101,30 @@ if(isset($_POST['opcja']))
                 wyswietl_05_lekarz($wynik);
             else echo "brak wynikow <br>";
             break;    
-        }}
+        case '4':
+                ?>
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+    </svg>
+                Wyniki pacjentów - NORMY
+                <form action = "normy.php" method = "post"> 
+                <select name = "id_param">
+            <?php
+                echo opcjeBadania_param();
+                echo "<br>";
+
+                
+                ?>
+                <input type = "submit" value = "Wyslij" class="btn btn-outline-success"> <br>
+           
+             <?php
+               
+                break;
+        
+        
+        
+        }
+    }
 ?>
 
