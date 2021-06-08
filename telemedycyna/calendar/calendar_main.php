@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="calendar_style.css">
   <?php
   include("/public_html/tele_projekt/telemedycyna/baza1.php"); //new
-  echo '<a href = \public_html\tele_projekt\telemedycyna\page2.php > Powrót </a>'
+  echo '<a href = \public_html\tele_projekt\telemedycyna\page2.php style="float: right;"> Powrót </a>'
 
   ?>  
   </head>

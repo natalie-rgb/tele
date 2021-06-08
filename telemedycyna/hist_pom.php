@@ -15,7 +15,6 @@
 <H1> Historia pomiarów </H1>
 <br>
 
-<a href = "page2.php"> powrót do interfejsu </a>
 
 <?php
 if ($_SESSION['zalogowany'] = 1 && isset($_POST['submit_H']))
@@ -26,12 +25,12 @@ if ($_SESSION['zalogowany'] = 1 && isset($_POST['submit_H']))
     if($id_badania == -1)
     {
         $sql = "SELECT ps.id_pomiary, p.nazwa, ps.wynik, ps.data_pomiaru FROM _pomiary_serce ps, _parametry p WHERE ps.id_pacjenta = '$user' AND ps.id_parametry = p.id_parametry" ;
-        echo "<br> $sql <br>"; //dla wszystkich pomiarow
+        // echo "<br> $sql <br>"; //dla wszystkich pomiarow
 
     }else{
 
         $sql = "SELECT ps.id_pomiary, p.nazwa, ps.wynik, ps.data_pomiaru FROM _pomiary_serce ps, _parametry p WHERE ps.id_pacjenta = '$user' AND ps.id_parametry = p.id_parametry AND p.id_parametry = '$id_badania'" ;
-        echo "<br> $sql <br>"; //dla wybranego pomiaru     
+        // echo "<br> $sql <br>"; //dla wybranego pomiaru     
     }
 
     if($wynik = WykonajZapytanie2($sql))
@@ -63,9 +62,8 @@ else
 ?>
 
     <pre>
-<?php
-    include("stopka.php");
-    ?>
+
+<a href = "page2.php"> powrót do interfejsu </a>
 
 
 

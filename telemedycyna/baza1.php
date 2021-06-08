@@ -137,11 +137,11 @@ function zwrocSkalar($_MySQL)
     }
 function opcjeBadania(){
     $retVal = "";
-    $sql = "SELECT `id_pacjenta`, `email` FROM `_pacjent`";
+    $sql = "SELECT `id_parametry`, `nazwa` FROM `_parametry`";
     $wynik = WykonajZapytanie2($sql);
     if($wynik){
         while($wiersz = $wynik -> fetch_assoc())
-            $retVal .= '<option value = "' . $wiersz["id_pacjenta"] . '" >' . $wiersz["email"] . '</option>';
+            $retVal .= '<option value = "' . $wiersz["id_parametry"] . '" >' . $wiersz["nazwa"] . '</option>';
             return $retVal;
 
     }

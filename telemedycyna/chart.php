@@ -7,7 +7,7 @@
 
 ?>
 
-<H1> Historia pomiarów - <?php echo $nazwa_badania; ?><br></H1>
+<H1> Historia pomiarów <?php echo $nazwa_badania; ?><br></H1>
 <br>
 
 <a href = "page2.php"> powrót do interfejsu </a>
@@ -149,8 +149,17 @@ if($wynik_l = WykonajZapytanie2($sql_l))
 
                 var options = {
                 chartArea:{width:'95%', height:'65%'},
-                colors: ['#d36c6c'],
-                legend: { position: 'bottom' }
+                colors: ['#961f1f'],
+                title: "Wyniki pomiarów",
+                titlePosition: "center",
+                titleFontSize:30,
+                backgroundColor: 'none',
+                hAxis: {title: 'Data pomiaru',
+                textStyle:{color: '#000'},
+                baselineColor: '#000000'},
+                vAxis: {title: 'Wartość',
+                textStyle:{color: '#000'},
+                baselineColor: '#000000'}
                 };
 
                 var chart = new google.visualization.ScatterChart(document.getElementById('scatter_chart'));
@@ -167,7 +176,6 @@ if($wynik_l = WykonajZapytanie2($sql_l))
             </style>
             <div class="page-wrapper">
             <br />
-            <h2 align="center">Wyniki pomiarów </h2>
             <div id="scatter_chart" style="width: 100%; height: 500px"></div>
             </div>
             
